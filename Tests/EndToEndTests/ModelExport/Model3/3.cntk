@@ -1,0 +1,37 @@
+# Parameters can be overwritten on the command line
+# for example: cntk configFile=myConfigFile RootDir=../.. 
+# For running from Visual Studio add
+# currentDirectory=$(SolutionDir)/<path to corresponding data folder> 
+RootDir = "."
+
+ConfigDir = "$RootDir$"
+DataDir   = "$RootDir$"
+OutputDir = "$RootDir$"
+InputDir  = "$RootDir$"
+
+# deviceId = 0
+#imageLayout = "cudnn"
+# override the above as follows when running on CPU:
+ deviceId = -1
+ imageLayout = "legacy"
+
+precision = "float"
+modelPath = "3_model.cntk"
+dbnModelPath = "3_export.dbn"
+ndlMacros = "Macros.ndl"
+
+# uncomment the following line to write logs to a file 
+#stderr = "cntkSpeech.out"
+traceLevel=1
+numMBsToShowResult=500
+
+command = export
+
+#######################################
+#  EXPORT CONFIG                      #
+#######################################
+
+export = [
+    action = "exportdbn"
+    ]
+]
