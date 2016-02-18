@@ -22,7 +22,7 @@ mkdir $DataDir
 cp -R $DataSourceDir/* $DataDir || exit $?
 
 # cntkrun <CNTK config file name> <additional CNTK args>
-cntkrun 3.cntk exportdbn
+cntkrun 3.cntk
 ExitCode=$?
 
 # Compare the exported dbn file against the base dbn
