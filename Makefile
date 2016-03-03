@@ -423,6 +423,24 @@ $(LIBSVMBINARYREADER): $(LIBSVMBINARYREADER_OBJ) | $(CNTKMATH_LIB)
 	$(CXX) $(LDFLAGS) -shared $(patsubst %,-L%, $(LIBDIR) $(LIBPATH)) $(patsubst %,$(RPATH)%, $(ORIGINDIR) $(LIBPATH)) -o $@ $^ -l$(CNTKMATH)
 
 ########################################
+# DenseReader plugin
+########################################
+
+DENSEREADER_SRC =\
+	$(SOURCEDIR)/Readers/DenseReader/Exports.cpp \
+	$(SOURCEDIR)/Readers/DenseReader/DenseReader.cpp \
+
+DENSEREADER_OBJ := $(patsubst %.cpp, $(OBJDIR)/%.o, $(DENSEREADER_SRC))
+
+DENSEREADER:=$(LIBDIR)/DenseReader.so
+ALL += $(DENSEREADER)
+SRC+=$(DENSEREADER_SRC)
+
+$(DENSEREADER): $(DENSEREADER_OBJ) | $(CNTKMATH_LIB)
+	@echo $(SEPARATOR)
+	$(CXX) $(LDFLAGS) -shared $(patsubst %,-L%, $(LIBDIR) $(LIBPATH)) $(patsubst %,$(RPATH)%, $(ORIGINDIR) $(LIBPATH)) -o $@ $^ -l$(CNTKMATH)
+
+########################################
 # SparsePCReader plugin
 ########################################
 
