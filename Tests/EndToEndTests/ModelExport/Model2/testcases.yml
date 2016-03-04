@@ -1,10 +1,9 @@
 dataDir: .
 tags:
-     # Note: Sequence training is currently not supported on the CPU
-     # running on every BVT job in 'S' (Speech) leg in Debug-GPU configuration:
-     - bvt-s  (build_sku == 'gpu') and ((flavor=='debug') and (device=='gpu') and (os=='linux'))
-     # running GPU configuration on every Nightly job in 'S' leg
-     - nightly-s (build_sku == 'gpu') and (device=='gpu') and (os=='linux')
+    # running on every BVT job in 'E' (Examples) leg
+    - bvt-e ((flavor=='release') & (device=='gpu')) 
+    # running every Nightly job in 'E' (Examples) leg
+    - nightly-e
 
 testCases:
   CNTK Run must be completed:
