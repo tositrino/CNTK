@@ -476,7 +476,7 @@ IMAGE_READER_LIBS += -lopencv_core -lopencv_imgproc -lopencv_imgcodecs
 
 ifdef LIBZIP_PATH
   CPPFLAGS += -DUSE_ZIP
-  INCLUDEPATH += $(LIBZIP_PATH)/lib/libzip/include
+  INCLUDEPATH += $(LIBZIP_PATH)/include
   IMAGE_READER_LIBS += -lzip
 endif
 
