@@ -39,7 +39,7 @@ cub_check=cub/cub.cuh
 
 have_cudnn=no
 cudnn_path=
-cudnn_check=cuda/include/cudnn.h
+cudnn_check=include/cudnn.h
 
 have_opencv=no
 opencv_path=
@@ -486,7 +486,7 @@ do
                     exit 1
                 fi
             else
-                if test $(check_dir $optarg $$libzip_check) = yes
+                if test $(check_dir $optarg $libzip_check) = yes
                 then
                     libzip_path=$optarg
                 else
